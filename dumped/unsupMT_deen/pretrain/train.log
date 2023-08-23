@@ -1,0 +1,2092 @@
+INFO - 06/08/22 09:26:38 - 0:00:00 - ============ Initialized logger ============
+INFO - 06/08/22 09:26:38 - 0:00:00 - ae_steps: []
+                                     asm: False
+                                     attention_dropout: 0.1
+                                     attention_setting: v1
+                                     back_dataset: {}
+                                     batch_size: 1
+                                     beam_size: 1
+                                     bmt_steps: []
+                                     bptt: 128
+                                     bt_src_langs: []
+                                     bt_steps: []
+                                     clip_grad_norm: 5
+                                     clm_steps: []
+                                     command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3' --exp_id "pretrain"
+                                     context_size: 0
+                                     cuda: False
+                                     data_path: ./data/processed/de-en/
+                                     debug_slurm: False
+                                     debug_train: False
+                                     dropout: 0.1
+                                     dump_path: ./dumped/unsupMT_deen\pretrain
+                                     early_stopping: False
+                                     emb_dim: 1024
+                                     encoder_only: False
+                                     english_only: False
+                                     epoch_size: 5
+                                     eval_bleu: True
+                                     eval_only: False
+                                     exp_id: pretrain
+                                     exp_name: unsupMT_deen
+                                     fp16: False
+                                     gelu_activation: True
+                                     group_by_size: True
+                                     id2lang: {0: 'de', 1: 'en'}
+                                     is_master: True
+                                     lambda_ae: 1
+                                     lambda_bmt: 1
+                                     lambda_bt: 1
+                                     lambda_clm: 1
+                                     lambda_mass: 1
+                                     lambda_mlm: 1
+                                     lambda_mt: 1
+                                     lambda_pc: 1
+                                     lambda_span: 10000
+                                     lang2id: {'de': 0, 'en': 1}
+                                     langs: ['de', 'en']
+                                     length_penalty: 1
+                                     lg_sampling_factor: -1
+                                     lgs: de-en
+                                     local_rank: 0
+                                     mass_steps: ['de', 'en']
+                                     master_port: -1
+                                     max_batch_size: 0
+                                     max_epoch: 10
+                                     max_len: 100
+                                     max_vocab: -1
+                                     min_count: 0
+                                     min_len: 0
+                                     mlm_steps: []
+                                     mono_dataset: {'de': {'train': './data/processed/de-en/train.de.pth', 'valid': './data/processed/de-en/valid.de.pth', 'test': './data/processed/de-en/test.de.pth'}, 'en': {'train': './data/processed/de-en/train.en.pth', 'valid': './data/processed/de-en/valid.en.pth', 'test': './data/processed/de-en/test.en.pth'}}
+                                     mt_steps: []
+                                     multi_gpu: False
+                                     n_dec_layers: 6
+                                     n_gpu_per_node: 1
+                                     n_heads: 8
+                                     n_langs: 2
+                                     n_layers: 6
+                                     optimizer: adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001
+                                     para_dataset: {('de', 'en'): {'valid': ('./data/processed/de-en/valid.de-en.de.pth', './data/processed/de-en/valid.de-en.en.pth'), 'test': ('./data/processed/de-en/test.de-en.de.pth', './data/processed/de-en/test.de-en.en.pth')}}
+                                     pc_steps: []
+                                     prefix: False
+                                     reload_model: 
+                                     sample_alpha: 0
+                                     save_periodic: 0
+                                     share_inout_emb: True
+                                     sinusoidal_embeddings: False
+                                     split_data: False
+                                     stopping_criterion: _valid_de-en_mt_ppl,3
+                                     tokens_per_batch: 2000
+                                     validation_metrics: _valid_de-en_mt_ppl
+                                     word_blank: 0
+                                     word_dropout: 0
+                                     word_keep: 0.1
+                                     word_mask: 0.8
+                                     word_mask_keep_rand: 0.8,0.1,0.1
+                                     word_mass: 0
+                                     word_pred: 0.15
+                                     word_rand: 0.1
+                                     word_shuffle: 0
+INFO - 06/08/22 09:26:38 - 0:00:00 - The experiment will be stored in ./dumped/unsupMT_deen\pretrain
+                                     
+INFO - 06/08/22 09:26:38 - 0:00:00 - Running command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3'
+
+INFO - 06/08/22 09:26:38 - 0:00:00 - ============ Monolingual data (de)
+INFO - 06/08/22 09:26:38 - 0:00:00 - Loading data from ./data/processed/de-en/train.de.pth ...
+INFO - 06/08/22 09:26:42 - 0:00:05 - 108350453 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:26:44 - 0:00:06 - Removed 0 empty sentences.
+INFO - 06/08/22 09:26:44 - 0:00:06 - Removed 6354 too long sentences.
+
+INFO - 06/08/22 09:26:44 - 0:00:06 - Loading data from ./data/processed/de-en/valid.de.pth ...
+INFO - 06/08/22 09:26:44 - 0:00:06 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+
+INFO - 06/08/22 09:26:44 - 0:00:07 - Loading data from ./data/processed/de-en/test.de.pth ...
+INFO - 06/08/22 09:26:44 - 0:00:07 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:26:45 - 0:00:07 - ============ Monolingual data (en)
+INFO - 06/08/22 09:26:45 - 0:00:07 - Loading data from ./data/processed/de-en/train.en.pth ...
+INFO - 06/08/22 09:26:50 - 0:00:12 - 129883113 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:26:51 - 0:00:14 - Removed 0 empty sentences.
+INFO - 06/08/22 09:26:51 - 0:00:14 - Removed 13059 too long sentences.
+
+INFO - 06/08/22 09:26:51 - 0:00:14 - Loading data from ./data/processed/de-en/valid.en.pth ...
+INFO - 06/08/22 09:26:51 - 0:00:14 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:26:52 - 0:00:14 - Loading data from ./data/processed/de-en/test.en.pth ...
+INFO - 06/08/22 09:26:52 - 0:00:14 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+
+INFO - 06/08/22 09:26:52 - 0:00:14 - ============ Parallel data (de-en)
+INFO - 06/08/22 09:26:52 - 0:00:14 - Loading data from ./data/processed/de-en/valid.de-en.de.pth ...
+INFO - 06/08/22 09:26:52 - 0:00:14 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+INFO - 06/08/22 09:26:52 - 0:00:14 - Loading data from ./data/processed/de-en/valid.de-en.en.pth ...
+INFO - 06/08/22 09:26:52 - 0:00:15 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:26:53 - 0:00:15 - Removed 0 empty sentences.
+
+INFO - 06/08/22 09:26:53 - 0:00:15 - Loading data from ./data/processed/de-en/test.de-en.de.pth ...
+INFO - 06/08/22 09:26:53 - 0:00:15 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:26:53 - 0:00:15 - Loading data from ./data/processed/de-en/test.de-en.en.pth ...
+INFO - 06/08/22 09:26:53 - 0:00:15 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:26:53 - 0:00:16 - Removed 0 empty sentences.
+
+
+INFO - 06/08/22 09:26:53 - 0:00:16 - ============ Data summary
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   - train -           de:   5000000
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   - valid -           de:      3000
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   -  test -           de:      2999
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   - train -           en:   5000000
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   - valid -           en:      3000
+INFO - 06/08/22 09:26:53 - 0:00:16 - Monolingual data   -  test -           en:      2999
+INFO - 06/08/22 09:26:53 - 0:00:16 - Parallel data      - valid -        de-en:      3000
+INFO - 06/08/22 09:26:53 - 0:00:16 - Parallel data      -  test -        de-en:      2999
+
+DEBUG - 06/08/22 09:26:57 - 0:00:19 - Encoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+DEBUG - 06/08/22 09:26:57 - 0:00:19 - Decoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (layer_norm15): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (encoder_attn): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+INFO - 06/08/22 09:26:57 - 0:00:19 - Number of parameters (encoder): 138155000
+INFO - 06/08/22 09:26:57 - 0:00:19 - Number of parameters (decoder): 169655288
+INFO - 06/08/22 09:27:01 - 0:00:23 - ============ Starting epoch 0 ... ============
+INFO - 06/08/22 09:36:09 - 0:09:32 - Creating new training data iterator (mass,en) ...
+INFO - 06/08/22 09:36:11 - 0:09:33 - iterator (mass,en) done
+INFO - 06/08/22 09:38:13 - 0:00:00 - ============ Initialized logger ============
+INFO - 06/08/22 09:38:13 - 0:00:00 - ae_steps: []
+                                     asm: False
+                                     attention_dropout: 0.1
+                                     attention_setting: v1
+                                     back_dataset: {}
+                                     batch_size: 1
+                                     beam_size: 1
+                                     bmt_steps: []
+                                     bptt: 128
+                                     bt_src_langs: []
+                                     bt_steps: []
+                                     clip_grad_norm: 5
+                                     clm_steps: []
+                                     command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3' --exp_id "pretrain"
+                                     context_size: 0
+                                     cuda: False
+                                     data_path: ./data/processed/de-en/
+                                     debug_slurm: False
+                                     debug_train: False
+                                     dropout: 0.1
+                                     dump_path: ./dumped/unsupMT_deen\pretrain
+                                     early_stopping: False
+                                     emb_dim: 1024
+                                     encoder_only: False
+                                     english_only: False
+                                     epoch_size: 5
+                                     eval_bleu: True
+                                     eval_only: False
+                                     exp_id: pretrain
+                                     exp_name: unsupMT_deen
+                                     fp16: False
+                                     gelu_activation: True
+                                     group_by_size: True
+                                     id2lang: {0: 'de', 1: 'en'}
+                                     is_master: True
+                                     lambda_ae: 1
+                                     lambda_bmt: 1
+                                     lambda_bt: 1
+                                     lambda_clm: 1
+                                     lambda_mass: 1
+                                     lambda_mlm: 1
+                                     lambda_mt: 1
+                                     lambda_pc: 1
+                                     lambda_span: 10000
+                                     lang2id: {'de': 0, 'en': 1}
+                                     langs: ['de', 'en']
+                                     length_penalty: 1
+                                     lg_sampling_factor: -1
+                                     lgs: de-en
+                                     local_rank: 0
+                                     mass_steps: ['de', 'en']
+                                     master_port: -1
+                                     max_batch_size: 0
+                                     max_epoch: 10
+                                     max_len: 100
+                                     max_vocab: -1
+                                     min_count: 0
+                                     min_len: 0
+                                     mlm_steps: []
+                                     mono_dataset: {'de': {'train': './data/processed/de-en/train.de.pth', 'valid': './data/processed/de-en/valid.de.pth', 'test': './data/processed/de-en/test.de.pth'}, 'en': {'train': './data/processed/de-en/train.en.pth', 'valid': './data/processed/de-en/valid.en.pth', 'test': './data/processed/de-en/test.en.pth'}}
+                                     mt_steps: []
+                                     multi_gpu: False
+                                     n_dec_layers: 6
+                                     n_gpu_per_node: 1
+                                     n_heads: 8
+                                     n_langs: 2
+                                     n_layers: 6
+                                     optimizer: adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001
+                                     para_dataset: {('de', 'en'): {'valid': ('./data/processed/de-en/valid.de-en.de.pth', './data/processed/de-en/valid.de-en.en.pth'), 'test': ('./data/processed/de-en/test.de-en.de.pth', './data/processed/de-en/test.de-en.en.pth')}}
+                                     pc_steps: []
+                                     prefix: False
+                                     reload_model: 
+                                     sample_alpha: 0
+                                     save_periodic: 0
+                                     share_inout_emb: True
+                                     sinusoidal_embeddings: False
+                                     split_data: False
+                                     stopping_criterion: _valid_de-en_mt_ppl,3
+                                     tokens_per_batch: 2000
+                                     validation_metrics: _valid_de-en_mt_ppl
+                                     word_blank: 0
+                                     word_dropout: 0
+                                     word_keep: 0.1
+                                     word_mask: 0.8
+                                     word_mask_keep_rand: 0.8,0.1,0.1
+                                     word_mass: 0
+                                     word_pred: 0.15
+                                     word_rand: 0.1
+                                     word_shuffle: 0
+INFO - 06/08/22 09:38:13 - 0:00:00 - The experiment will be stored in ./dumped/unsupMT_deen\pretrain
+                                     
+INFO - 06/08/22 09:38:13 - 0:00:00 - Running command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3'
+
+INFO - 06/08/22 09:38:13 - 0:00:00 - ============ Monolingual data (de)
+INFO - 06/08/22 09:38:13 - 0:00:00 - Loading data from ./data/processed/de-en/train.de.pth ...
+INFO - 06/08/22 09:38:14 - 0:00:00 - 108350453 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:38:15 - 0:00:01 - Removed 0 empty sentences.
+INFO - 06/08/22 09:38:15 - 0:00:01 - Removed 6354 too long sentences.
+
+INFO - 06/08/22 09:38:15 - 0:00:01 - Loading data from ./data/processed/de-en/valid.de.pth ...
+INFO - 06/08/22 09:38:15 - 0:00:01 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+
+INFO - 06/08/22 09:38:15 - 0:00:02 - Loading data from ./data/processed/de-en/test.de.pth ...
+INFO - 06/08/22 09:38:15 - 0:00:02 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:38:15 - 0:00:02 - ============ Monolingual data (en)
+INFO - 06/08/22 09:38:15 - 0:00:02 - Loading data from ./data/processed/de-en/train.en.pth ...
+INFO - 06/08/22 09:38:16 - 0:00:02 - 129883113 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:38:17 - 0:00:03 - Removed 0 empty sentences.
+INFO - 06/08/22 09:38:17 - 0:00:04 - Removed 13059 too long sentences.
+
+INFO - 06/08/22 09:38:17 - 0:00:04 - Loading data from ./data/processed/de-en/valid.en.pth ...
+INFO - 06/08/22 09:38:17 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:38:17 - 0:00:04 - Loading data from ./data/processed/de-en/test.en.pth ...
+INFO - 06/08/22 09:38:17 - 0:00:04 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+
+INFO - 06/08/22 09:38:17 - 0:00:04 - ============ Parallel data (de-en)
+INFO - 06/08/22 09:38:17 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.de.pth ...
+INFO - 06/08/22 09:38:17 - 0:00:04 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+INFO - 06/08/22 09:38:17 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.en.pth ...
+INFO - 06/08/22 09:38:17 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:38:18 - 0:00:04 - Removed 0 empty sentences.
+
+INFO - 06/08/22 09:38:18 - 0:00:04 - Loading data from ./data/processed/de-en/test.de-en.de.pth ...
+INFO - 06/08/22 09:38:18 - 0:00:05 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:38:18 - 0:00:05 - Loading data from ./data/processed/de-en/test.de-en.en.pth ...
+INFO - 06/08/22 09:38:18 - 0:00:05 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:38:18 - 0:00:05 - Removed 0 empty sentences.
+
+
+INFO - 06/08/22 09:38:18 - 0:00:05 - ============ Data summary
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   - train -           de:   5000000
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   - valid -           de:      3000
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   -  test -           de:      2999
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   - train -           en:   5000000
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   - valid -           en:      3000
+INFO - 06/08/22 09:38:18 - 0:00:05 - Monolingual data   -  test -           en:      2999
+INFO - 06/08/22 09:38:18 - 0:00:05 - Parallel data      - valid -        de-en:      3000
+INFO - 06/08/22 09:38:18 - 0:00:05 - Parallel data      -  test -        de-en:      2999
+
+DEBUG - 06/08/22 09:38:21 - 0:00:08 - Encoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+DEBUG - 06/08/22 09:38:21 - 0:00:08 - Decoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (layer_norm15): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (encoder_attn): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+INFO - 06/08/22 09:38:21 - 0:00:08 - Number of parameters (encoder): 138155000
+INFO - 06/08/22 09:38:21 - 0:00:08 - Number of parameters (decoder): 169655288
+INFO - 06/08/22 09:38:25 - 0:00:12 - ============ Starting epoch 0 ... ============
+INFO - 06/08/22 09:38:25 - 0:00:12 - Creating new training data iterator (mass,en) ...
+INFO - 06/08/22 09:38:27 - 0:00:13 - iterator (mass,en) done
+INFO - 06/08/22 09:39:39 - 0:00:00 - ============ Initialized logger ============
+INFO - 06/08/22 09:39:39 - 0:00:00 - ae_steps: []
+                                     asm: False
+                                     attention_dropout: 0.1
+                                     attention_setting: v1
+                                     back_dataset: {}
+                                     batch_size: 1
+                                     beam_size: 1
+                                     bmt_steps: []
+                                     bptt: 128
+                                     bt_src_langs: []
+                                     bt_steps: []
+                                     clip_grad_norm: 5
+                                     clm_steps: []
+                                     command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --word_mass '0.5' --min_len 5 --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3' --exp_id "pretrain"
+                                     context_size: 0
+                                     cuda: False
+                                     data_path: ./data/processed/de-en/
+                                     debug_slurm: False
+                                     debug_train: False
+                                     dropout: 0.1
+                                     dump_path: ./dumped/unsupMT_deen\pretrain
+                                     early_stopping: False
+                                     emb_dim: 1024
+                                     encoder_only: False
+                                     english_only: False
+                                     epoch_size: 5
+                                     eval_bleu: True
+                                     eval_only: False
+                                     exp_id: pretrain
+                                     exp_name: unsupMT_deen
+                                     fp16: False
+                                     gelu_activation: True
+                                     group_by_size: True
+                                     id2lang: {0: 'de', 1: 'en'}
+                                     is_master: True
+                                     lambda_ae: 1
+                                     lambda_bmt: 1
+                                     lambda_bt: 1
+                                     lambda_clm: 1
+                                     lambda_mass: 1
+                                     lambda_mlm: 1
+                                     lambda_mt: 1
+                                     lambda_pc: 1
+                                     lambda_span: 10000
+                                     lang2id: {'de': 0, 'en': 1}
+                                     langs: ['de', 'en']
+                                     length_penalty: 1
+                                     lg_sampling_factor: -1
+                                     lgs: de-en
+                                     local_rank: 0
+                                     mass_steps: ['de', 'en']
+                                     master_port: -1
+                                     max_batch_size: 0
+                                     max_epoch: 10
+                                     max_len: 100
+                                     max_vocab: -1
+                                     min_count: 0
+                                     min_len: 5
+                                     mlm_steps: []
+                                     mono_dataset: {'de': {'train': './data/processed/de-en/train.de.pth', 'valid': './data/processed/de-en/valid.de.pth', 'test': './data/processed/de-en/test.de.pth'}, 'en': {'train': './data/processed/de-en/train.en.pth', 'valid': './data/processed/de-en/valid.en.pth', 'test': './data/processed/de-en/test.en.pth'}}
+                                     mt_steps: []
+                                     multi_gpu: False
+                                     n_dec_layers: 6
+                                     n_gpu_per_node: 1
+                                     n_heads: 8
+                                     n_langs: 2
+                                     n_layers: 6
+                                     optimizer: adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001
+                                     para_dataset: {('de', 'en'): {'valid': ('./data/processed/de-en/valid.de-en.de.pth', './data/processed/de-en/valid.de-en.en.pth'), 'test': ('./data/processed/de-en/test.de-en.de.pth', './data/processed/de-en/test.de-en.en.pth')}}
+                                     pc_steps: []
+                                     prefix: False
+                                     reload_model: 
+                                     sample_alpha: 0
+                                     save_periodic: 0
+                                     share_inout_emb: True
+                                     sinusoidal_embeddings: False
+                                     split_data: False
+                                     stopping_criterion: _valid_de-en_mt_ppl,3
+                                     tokens_per_batch: 2000
+                                     validation_metrics: _valid_de-en_mt_ppl
+                                     word_blank: 0
+                                     word_dropout: 0
+                                     word_keep: 0.1
+                                     word_mask: 0.8
+                                     word_mask_keep_rand: 0.8,0.1,0.1
+                                     word_mass: 0.5
+                                     word_pred: 0.15
+                                     word_rand: 0.1
+                                     word_shuffle: 0
+INFO - 06/08/22 09:39:39 - 0:00:00 - The experiment will be stored in ./dumped/unsupMT_deen\pretrain
+                                     
+INFO - 06/08/22 09:39:39 - 0:00:00 - Running command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --word_mass '0.5' --min_len 5 --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3'
+
+INFO - 06/08/22 09:39:39 - 0:00:00 - ============ Monolingual data (de)
+INFO - 06/08/22 09:39:39 - 0:00:00 - Loading data from ./data/processed/de-en/train.de.pth ...
+INFO - 06/08/22 09:39:39 - 0:00:00 - 108350453 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:39:40 - 0:00:01 - Removed 0 empty sentences.
+INFO - 06/08/22 09:39:40 - 0:00:01 - Removed 6354 too long sentences.
+INFO - 06/08/22 09:39:40 - 0:00:01 - Removed 108511 too short sentences
+
+INFO - 06/08/22 09:39:40 - 0:00:01 - Loading data from ./data/processed/de-en/valid.de.pth ...
+INFO - 06/08/22 09:39:40 - 0:00:02 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+
+INFO - 06/08/22 09:39:40 - 0:00:02 - Loading data from ./data/processed/de-en/test.de.pth ...
+INFO - 06/08/22 09:39:40 - 0:00:02 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:39:41 - 0:00:02 - ============ Monolingual data (en)
+INFO - 06/08/22 09:39:41 - 0:00:02 - Loading data from ./data/processed/de-en/train.en.pth ...
+INFO - 06/08/22 09:39:41 - 0:00:02 - 129883113 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:39:42 - 0:00:04 - Removed 0 empty sentences.
+INFO - 06/08/22 09:39:42 - 0:00:04 - Removed 13059 too long sentences.
+INFO - 06/08/22 09:39:42 - 0:00:04 - Removed 78570 too short sentences
+
+INFO - 06/08/22 09:39:43 - 0:00:04 - Loading data from ./data/processed/de-en/valid.en.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:39:43 - 0:00:04 - Loading data from ./data/processed/de-en/test.en.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:04 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+
+INFO - 06/08/22 09:39:43 - 0:00:04 - ============ Parallel data (de-en)
+INFO - 06/08/22 09:39:43 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.de.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:04 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+INFO - 06/08/22 09:39:43 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.en.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:39:43 - 0:00:05 - Removed 0 empty sentences.
+
+INFO - 06/08/22 09:39:43 - 0:00:05 - Loading data from ./data/processed/de-en/test.de-en.de.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:05 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:39:43 - 0:00:05 - Loading data from ./data/processed/de-en/test.de-en.en.pth ...
+INFO - 06/08/22 09:39:43 - 0:00:05 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:39:44 - 0:00:05 - Removed 0 empty sentences.
+
+
+INFO - 06/08/22 09:39:44 - 0:00:05 - ============ Data summary
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   - train -           de:   5000000
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   - valid -           de:      3000
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   -  test -           de:      2999
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   - train -           en:   5000000
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   - valid -           en:      3000
+INFO - 06/08/22 09:39:44 - 0:00:05 - Monolingual data   -  test -           en:      2999
+INFO - 06/08/22 09:39:44 - 0:00:05 - Parallel data      - valid -        de-en:      3000
+INFO - 06/08/22 09:39:44 - 0:00:05 - Parallel data      -  test -        de-en:      2999
+
+DEBUG - 06/08/22 09:39:47 - 0:00:08 - Encoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+DEBUG - 06/08/22 09:39:47 - 0:00:08 - Decoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (layer_norm15): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (encoder_attn): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+INFO - 06/08/22 09:39:47 - 0:00:08 - Number of parameters (encoder): 138155000
+INFO - 06/08/22 09:39:47 - 0:00:08 - Number of parameters (decoder): 169655288
+INFO - 06/08/22 09:39:50 - 0:00:11 - ============ Starting epoch 0 ... ============
+INFO - 06/08/22 09:39:50 - 0:00:11 - Creating new training data iterator (mass,de) ...
+INFO - 06/08/22 09:39:51 - 0:00:12 - iterator (mass,de) done
+INFO - 06/08/22 09:45:56 - 0:00:00 - ============ Initialized logger ============
+INFO - 06/08/22 09:45:56 - 0:00:00 - ae_steps: []
+                                     asm: False
+                                     attention_dropout: 0.1
+                                     attention_setting: v1
+                                     back_dataset: {}
+                                     batch_size: 1
+                                     beam_size: 1
+                                     bmt_steps: []
+                                     bptt: 128
+                                     bt_src_langs: []
+                                     bt_steps: []
+                                     clip_grad_norm: 5
+                                     clm_steps: []
+                                     command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --word_mass '0.5' --min_len 5 --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3' --exp_id "pretrain"
+                                     context_size: 0
+                                     cuda: False
+                                     data_path: ./data/processed/de-en/
+                                     debug_slurm: False
+                                     debug_train: False
+                                     dropout: 0.1
+                                     dump_path: ./dumped/unsupMT_deen\pretrain
+                                     early_stopping: False
+                                     emb_dim: 1024
+                                     encoder_only: False
+                                     english_only: False
+                                     epoch_size: 5
+                                     eval_bleu: True
+                                     eval_only: False
+                                     exp_id: pretrain
+                                     exp_name: unsupMT_deen
+                                     fp16: False
+                                     gelu_activation: True
+                                     group_by_size: True
+                                     id2lang: {0: 'de', 1: 'en'}
+                                     is_master: True
+                                     lambda_ae: 1
+                                     lambda_bmt: 1
+                                     lambda_bt: 1
+                                     lambda_clm: 1
+                                     lambda_mass: 1
+                                     lambda_mlm: 1
+                                     lambda_mt: 1
+                                     lambda_pc: 1
+                                     lambda_span: 10000
+                                     lang2id: {'de': 0, 'en': 1}
+                                     langs: ['de', 'en']
+                                     length_penalty: 1
+                                     lg_sampling_factor: -1
+                                     lgs: de-en
+                                     local_rank: 0
+                                     mass_steps: ['de', 'en']
+                                     master_port: -1
+                                     max_batch_size: 0
+                                     max_epoch: 10
+                                     max_len: 100
+                                     max_vocab: -1
+                                     min_count: 0
+                                     min_len: 5
+                                     mlm_steps: []
+                                     mono_dataset: {'de': {'train': './data/processed/de-en/train.de.pth', 'valid': './data/processed/de-en/valid.de.pth', 'test': './data/processed/de-en/test.de.pth'}, 'en': {'train': './data/processed/de-en/train.en.pth', 'valid': './data/processed/de-en/valid.en.pth', 'test': './data/processed/de-en/test.en.pth'}}
+                                     mt_steps: []
+                                     multi_gpu: False
+                                     n_dec_layers: 6
+                                     n_gpu_per_node: 1
+                                     n_heads: 8
+                                     n_langs: 2
+                                     n_layers: 6
+                                     optimizer: adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001
+                                     para_dataset: {('de', 'en'): {'valid': ('./data/processed/de-en/valid.de-en.de.pth', './data/processed/de-en/valid.de-en.en.pth'), 'test': ('./data/processed/de-en/test.de-en.de.pth', './data/processed/de-en/test.de-en.en.pth')}}
+                                     pc_steps: []
+                                     prefix: False
+                                     reload_model: 
+                                     sample_alpha: 0
+                                     save_periodic: 0
+                                     share_inout_emb: True
+                                     sinusoidal_embeddings: False
+                                     split_data: False
+                                     stopping_criterion: _valid_de-en_mt_ppl,3
+                                     tokens_per_batch: 2000
+                                     validation_metrics: _valid_de-en_mt_ppl
+                                     word_blank: 0
+                                     word_dropout: 0
+                                     word_keep: 0.1
+                                     word_mask: 0.8
+                                     word_mask_keep_rand: 0.8,0.1,0.1
+                                     word_mass: 0.5
+                                     word_pred: 0.15
+                                     word_rand: 0.1
+                                     word_shuffle: 0
+INFO - 06/08/22 09:45:56 - 0:00:00 - The experiment will be stored in ./dumped/unsupMT_deen\pretrain
+                                     
+INFO - 06/08/22 09:45:56 - 0:00:00 - Running command: python train.py --cuda False --prefix False --exp_name unsupMT_deen --exp_id pretrain --data_path './data/processed/de-en/' --lgs 'de-en' --mass_steps 'de,en' --encoder_only false --emb_dim 1024 --n_layers 6 --n_heads 8 --dropout '0.1' --attention_dropout '0.1' --gelu_activation true --tokens_per_batch 2000 --batch_size 1 --bptt 128 --optimizer 'adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001' --epoch_size 5 --max_epoch 10 --eval_bleu true --word_mass '0.5' --min_len 5 --validation_metrics '_valid_de-en_mt_ppl' --stopping_criterion '_valid_de-en_mt_ppl,3'
+
+INFO - 06/08/22 09:45:56 - 0:00:00 - ============ Monolingual data (de)
+INFO - 06/08/22 09:45:56 - 0:00:00 - Loading data from ./data/processed/de-en/train.de.pth ...
+INFO - 06/08/22 09:45:56 - 0:00:00 - 108350453 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:45:57 - 0:00:01 - Removed 0 empty sentences.
+INFO - 06/08/22 09:45:57 - 0:00:01 - Removed 6354 too long sentences.
+INFO - 06/08/22 09:45:57 - 0:00:01 - Removed 108511 too short sentences
+
+INFO - 06/08/22 09:45:58 - 0:00:02 - Loading data from ./data/processed/de-en/valid.de.pth ...
+INFO - 06/08/22 09:45:58 - 0:00:02 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+
+INFO - 06/08/22 09:45:58 - 0:00:02 - Loading data from ./data/processed/de-en/test.de.pth ...
+INFO - 06/08/22 09:45:58 - 0:00:02 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:45:58 - 0:00:02 - ============ Monolingual data (en)
+INFO - 06/08/22 09:45:58 - 0:00:02 - Loading data from ./data/processed/de-en/train.en.pth ...
+INFO - 06/08/22 09:45:58 - 0:00:02 - 129883113 words (60408 unique) in 5000000 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:45:59 - 0:00:03 - Removed 0 empty sentences.
+INFO - 06/08/22 09:46:00 - 0:00:04 - Removed 13059 too long sentences.
+INFO - 06/08/22 09:46:00 - 0:00:04 - Removed 78570 too short sentences
+
+INFO - 06/08/22 09:46:00 - 0:00:04 - Loading data from ./data/processed/de-en/valid.en.pth ...
+INFO - 06/08/22 09:46:00 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+
+INFO - 06/08/22 09:46:00 - 0:00:04 - Loading data from ./data/processed/de-en/test.en.pth ...
+INFO - 06/08/22 09:46:00 - 0:00:04 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+
+
+INFO - 06/08/22 09:46:00 - 0:00:04 - ============ Parallel data (de-en)
+INFO - 06/08/22 09:46:00 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.de.pth ...
+INFO - 06/08/22 09:46:00 - 0:00:04 - 74899 words (60408 unique) in 3000 sentences. 4 unknown words (3 unique) covering 0.01% of the data.
+INFO - 06/08/22 09:46:00 - 0:00:04 - Loading data from ./data/processed/de-en/valid.de-en.en.pth ...
+INFO - 06/08/22 09:46:00 - 0:00:04 - 70574 words (60408 unique) in 3000 sentences. 1 unknown words (1 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:46:01 - 0:00:05 - Removed 0 empty sentences.
+
+INFO - 06/08/22 09:46:01 - 0:00:05 - Loading data from ./data/processed/de-en/test.de-en.de.pth ...
+INFO - 06/08/22 09:46:01 - 0:00:05 - 73662 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:46:01 - 0:00:05 - Loading data from ./data/processed/de-en/test.de-en.en.pth ...
+INFO - 06/08/22 09:46:01 - 0:00:05 - 70156 words (60408 unique) in 2999 sentences. 0 unknown words (0 unique) covering 0.00% of the data.
+INFO - 06/08/22 09:46:01 - 0:00:05 - Removed 0 empty sentences.
+
+
+INFO - 06/08/22 09:46:01 - 0:00:05 - ============ Data summary
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   - train -           de:   5000000
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   - valid -           de:      3000
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   -  test -           de:      2999
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   - train -           en:   5000000
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   - valid -           en:      3000
+INFO - 06/08/22 09:46:01 - 0:00:05 - Monolingual data   -  test -           en:      2999
+INFO - 06/08/22 09:46:01 - 0:00:05 - Parallel data      - valid -        de-en:      3000
+INFO - 06/08/22 09:46:01 - 0:00:05 - Parallel data      -  test -        de-en:      2999
+
+DEBUG - 06/08/22 09:55:40 - 0:09:44 - Encoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+DEBUG - 06/08/22 09:55:41 - 0:09:45 - Decoder: TransformerModel(
+                                        (softprompts): ModuleList(
+                                          (0): Linear(in_features=1, out_features=1024, bias=True)
+                                          (1): Linear(in_features=1, out_features=1024, bias=True)
+                                          (2): Linear(in_features=1, out_features=1024, bias=True)
+                                          (3): Linear(in_features=1, out_features=1024, bias=True)
+                                          (4): Linear(in_features=1, out_features=1024, bias=True)
+                                          (5): Linear(in_features=1, out_features=1024, bias=True)
+                                          (6): Linear(in_features=1, out_features=1024, bias=True)
+                                          (7): Linear(in_features=1, out_features=1024, bias=True)
+                                          (8): Linear(in_features=1, out_features=1024, bias=True)
+                                          (9): Linear(in_features=1, out_features=1024, bias=True)
+                                          (10): Linear(in_features=1, out_features=1024, bias=True)
+                                          (11): Linear(in_features=1, out_features=1024, bias=True)
+                                          (12): Linear(in_features=1, out_features=1024, bias=True)
+                                          (13): Linear(in_features=1, out_features=1024, bias=True)
+                                          (14): Linear(in_features=1, out_features=1024, bias=True)
+                                          (15): Linear(in_features=1, out_features=1024, bias=True)
+                                          (16): Linear(in_features=1, out_features=1024, bias=True)
+                                          (17): Linear(in_features=1, out_features=1024, bias=True)
+                                          (18): Linear(in_features=1, out_features=1024, bias=True)
+                                          (19): Linear(in_features=1, out_features=1024, bias=True)
+                                          (20): Linear(in_features=1, out_features=1024, bias=True)
+                                          (21): Linear(in_features=1, out_features=1024, bias=True)
+                                          (22): Linear(in_features=1, out_features=1024, bias=True)
+                                          (23): Linear(in_features=1, out_features=1024, bias=True)
+                                          (24): Linear(in_features=1, out_features=1024, bias=True)
+                                          (25): Linear(in_features=1, out_features=1024, bias=True)
+                                          (26): Linear(in_features=1, out_features=1024, bias=True)
+                                          (27): Linear(in_features=1, out_features=1024, bias=True)
+                                          (28): Linear(in_features=1, out_features=1024, bias=True)
+                                          (29): Linear(in_features=1, out_features=1024, bias=True)
+                                          (30): Linear(in_features=1, out_features=1024, bias=True)
+                                          (31): Linear(in_features=1, out_features=1024, bias=True)
+                                          (32): Linear(in_features=1, out_features=1024, bias=True)
+                                          (33): Linear(in_features=1, out_features=1024, bias=True)
+                                          (34): Linear(in_features=1, out_features=1024, bias=True)
+                                          (35): Linear(in_features=1, out_features=1024, bias=True)
+                                          (36): Linear(in_features=1, out_features=1024, bias=True)
+                                          (37): Linear(in_features=1, out_features=1024, bias=True)
+                                          (38): Linear(in_features=1, out_features=1024, bias=True)
+                                          (39): Linear(in_features=1, out_features=1024, bias=True)
+                                          (40): Linear(in_features=1, out_features=1024, bias=True)
+                                          (41): Linear(in_features=1, out_features=1024, bias=True)
+                                          (42): Linear(in_features=1, out_features=1024, bias=True)
+                                          (43): Linear(in_features=1, out_features=1024, bias=True)
+                                          (44): Linear(in_features=1, out_features=1024, bias=True)
+                                          (45): Linear(in_features=1, out_features=1024, bias=True)
+                                          (46): Linear(in_features=1, out_features=1024, bias=True)
+                                          (47): Linear(in_features=1, out_features=1024, bias=True)
+                                          (48): Linear(in_features=1, out_features=1024, bias=True)
+                                          (49): Linear(in_features=1, out_features=1024, bias=True)
+                                          (50): Linear(in_features=1, out_features=1024, bias=True)
+                                          (51): Linear(in_features=1, out_features=1024, bias=True)
+                                          (52): Linear(in_features=1, out_features=1024, bias=True)
+                                          (53): Linear(in_features=1, out_features=1024, bias=True)
+                                          (54): Linear(in_features=1, out_features=1024, bias=True)
+                                          (55): Linear(in_features=1, out_features=1024, bias=True)
+                                          (56): Linear(in_features=1, out_features=1024, bias=True)
+                                          (57): Linear(in_features=1, out_features=1024, bias=True)
+                                          (58): Linear(in_features=1, out_features=1024, bias=True)
+                                          (59): Linear(in_features=1, out_features=1024, bias=True)
+                                          (60): Linear(in_features=1, out_features=1024, bias=True)
+                                          (61): Linear(in_features=1, out_features=1024, bias=True)
+                                          (62): Linear(in_features=1, out_features=1024, bias=True)
+                                          (63): Linear(in_features=1, out_features=1024, bias=True)
+                                        )
+                                        (position_embeddings): Embedding(512, 1024)
+                                        (lang_embeddings): Embedding(2, 1024)
+                                        (embeddings): Embedding(60408, 1024, padding_idx=2)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (attentions): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm1): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (ffns): ModuleList(
+                                          (0): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (1): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (2): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (3): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (4): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                          (5): TransformerFFN(
+                                            (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                            (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                          )
+                                        )
+                                        (layer_norm2): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (layer_norm15): ModuleList(
+                                          (0): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (3): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (4): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          (5): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        )
+                                        (encoder_attn): ModuleList(
+                                          (0): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (1): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (2): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (3): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (4): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                          (5): MultiHeadAttention(
+                                            (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            (out_lin): ModuleList(
+                                              (0): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (1): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                          )
+                                        )
+                                        (pred_layer): PredLayer(
+                                          (proj): Linear(in_features=1024, out_features=60408, bias=True)
+                                        )
+                                      )
+INFO - 06/08/22 09:55:42 - 0:09:46 - Number of parameters (encoder): 138155000
+INFO - 06/08/22 09:55:52 - 0:09:56 - Number of parameters (decoder): 169655288
+INFO - 06/08/22 10:02:57 - 0:17:01 - ============ Starting epoch 0 ... ============
+INFO - 06/08/22 10:02:57 - 0:17:01 - Creating new training data iterator (mass,de) ...
+INFO - 06/08/22 10:02:58 - 0:17:02 - iterator (mass,de) done
